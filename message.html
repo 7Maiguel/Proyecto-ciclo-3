@@ -11,9 +11,12 @@
   <textarea name="mensaje" id="mensaje" cols="60" rows="8" placeholder="Dejar un mensaje..." style="resize: none" required></textarea>
   <br>
 
-  <button id="enviarMensaje">ENVIAR MENSAJE</button>
-  <button id="listarMensaje">VER LISTA</button>
+  <button id="enviarMensaje" onclick="guardarMensaje()">ENVIAR MENSAJE</button>
+  <button id="listarMensajes" onclick="leerMensajes()">VER MENSAJES</button>
   
   <table id="listaMensajes"></table>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="js/mensaje.js"></script>
 </body>
 </html>
