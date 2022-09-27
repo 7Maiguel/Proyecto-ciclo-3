@@ -8,8 +8,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/funciones.js"></script>
     <title>Reto2</title>
 </head>
 <body>
@@ -31,11 +29,13 @@
       <input class="inputs" type="text" id="name" placeholder="Ingrese el nombre"/>
       <br>
       <br>
-    <button onclick="guardarInformacion()"  id="send" type="button" >Guardar</button>
-    <button onclick="editarInformacion()" type="reset" id="reset" >Actualizar</button>
+    <button onclick="guardarInformacion()" id="send">Guardar</button>
+    <button onclick="editarInformacion()" id="reset">Actualizar</button>
+    <button onclick="traerInformacion()">Consultar</button>
   </form>
   <div id="resultado"></div>
-<br>
-    <button onclick="traerInformacion()">Consultar</button>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/bicicletas.js"></script>
 </body>
 </html>
