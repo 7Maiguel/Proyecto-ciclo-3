@@ -1,8 +1,8 @@
-const BASE_URL = 'https://g0497c038904c6c-dbreto1.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/bike/bike';
+const BASE_URL_BIKE = 'https://g0497c038904c6c-dbreto1.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/bike/bike';
     
 function traerInformacion(){
     $.ajax({
-        url:BASE_URL,
+        url:BASE_URL_BIKE,
         type:"GET",
         dataType:"JSON",
         success: function(respuesta){
@@ -13,6 +13,9 @@ function traerInformacion(){
 }
 
 function pintarRespuesta(items){
+    $('#consultarBici').text('Ocultar');
+    $('#consultarBici').attr('onclick', 'ocultarRespuesta()');
+
     let myTable= 
     `<table style="border: 1px solid black">
         <thead>
@@ -39,6 +42,12 @@ function pintarRespuesta(items){
     $("#resultado").append(myTable);
 }
 
+function ocultarRespuesta(){
+    $('#consultarBici').text('Consultar');
+    $('#consultarBici').attr('onclick', 'traerInformacion()');
+    $("#resultado").empty();
+}
+
 function guardarInformacion(){
     let myData={
         id:$("#id").val(),
@@ -51,7 +60,7 @@ function guardarInformacion(){
     let dataToSend=JSON.stringify(myData);
     
     $.ajax({
-        url:BASE_URL,
+        url:BASE_URL_BIKE,
         type:"POST",
         data:dataToSend,
         contentType: 'application/json',
@@ -79,7 +88,7 @@ function editarInformacion(){
     let dataToSend=JSON.stringify(myData);
     
     $.ajax({
-        url:BASE_URL,
+        url:BASE_URL_BIKE,
         type:"PUT",
         data:dataToSend,
         contentType:"application/json",
@@ -103,7 +112,7 @@ function borrarElemento(idElemento){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL,
+        url:BASE_URL_BIKE,
         type:"DELETE",
         data:dataToSend,
         contentType: "application/json",

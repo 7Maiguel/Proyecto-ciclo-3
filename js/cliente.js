@@ -1,8 +1,8 @@
-const BASE_URL = 'https://g0497c038904c6c-dbreto1.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/client/client';
+const BASE_URL_CLI = 'https://g0497c038904c6c-dbreto1.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/client/client';
 
 function obtenerCliente(){
     $.ajax({
-        url: BASE_URL,
+        url: BASE_URL_CLI,
         type: "GET",
         dataType: "JSON",
         success: function(respuesta){
@@ -52,7 +52,7 @@ function enviarCliente(){
     let dataToSend = JSON.stringify(dcliente);
 
     $.ajax({
-        url: BASE_URL,
+        url: BASE_URL_CLI,
         type: "POST",
         data: dataToSend,
         contentType: 'application/json',
@@ -73,7 +73,7 @@ function actualizarCliente(){
     let dataToSend = JSON.stringify(dCliente);
 
     $.ajax({
-        url: BASE_URL,
+        url: BASE_URL_CLI,
         type: "PUT",
         data:dataToSend,
         contentType:"application/json",
@@ -96,7 +96,7 @@ function borrarCliente(idCliente){
     let dataToSend = JSON.stringify(dCliente);
     
     $.ajax({
-        url: BASE_URL,
+        url: BASE_URL_CLI,
         type: "DELETE",
         data: dataToSend,
         contentType:"application/json",
@@ -110,7 +110,7 @@ function buscarCliente(){
     let dCliente = $("#id").val();
 
     $.ajax({
-        url: `${BASE_URL}/${dCliente}`,
+        url: `${BASE_URL_CLI}/${dCliente}`,
         type: "GET",
         dataType: "JSON",
         success: function(respuesta){
