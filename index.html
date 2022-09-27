@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
-<style>
-    table, th, td {
-        border:1px solid black;
-    }
-</style>
-
 <head>
-    <meta charset="UTF-8">
-    <title>Reto2</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reto 2</title>
 </head>
 <body>
 <h1>BICICLETAS</h1>
 <h2>Formulario bicicletas</h2>
-  <form class="form" >
-      <input class="inputs" type="number" id="id" placeholder="Ingrese ID"/>
-      <br>
-      <br>
-      <input class="inputs" type="text" id="brand" placeholder="Ingrese la marca"/>
-      <br>
-      <br>
-      <input class="inputs" type="number" id="model" placeholder="Ingrese el modelo"/>
-      <br>
-      <br>
-      <input class="inputs" type="number" id="category_id" placeholder="Ingrese la categoría"/>
-      <br>
-      <br>
-      <input class="inputs" type="text" id="name" placeholder="Ingrese el nombre"/>
-      <br>
-      <br>
-    <button onclick="guardarInformacion()" id="send">Guardar</button>
-    <button onclick="editarInformacion()" id="reset">Actualizar</button>
-    <button onclick="traerInformacion()">Consultar</button>
-  </form>
-  <div id="resultado"></div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="js/bicicletas.js"></script>
+<form>
+    <input type="number" id="id" placeholder="Ingrese ID"/>
+    <br>
+    <br>
+    <input type="text" id="brand" placeholder="Ingrese la marca"/>
+    <br>
+    <br>
+    <input type="number" id="model" placeholder="Ingrese el modelo"/>
+    <br>
+    <br>
+    <input type="number" id="category_id" placeholder="Ingrese la categoría"/>
+    <br>
+    <br>
+    <input type="text" id="name" placeholder="Ingrese el nombre"/>
+</form>
+<br>
+<button onclick="guardarInformacion()">Guardar</button>
+<button onclick="editarInformacion()">Actualizar</button>
+<button onclick="traerInformacion()">Consultar</button>
+<br>
+<br>
+<div id="resultado"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="js/bicicletas.js"></script>
 </body>
 </html>
