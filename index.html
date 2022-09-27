@@ -1,45 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="fx_reto2.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <title>RETO 2 ---BICICLETAS---</title>
-    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reto 2</title>
 </head>
 <body>
+    <h2>Formulario clientes</h2>
 
-    <h1>RETO 2 --- ---BICICLETAS---</h1>
+    <input type="number" id="id" placeholder="Ingrese ID">
+    <br>
+    <br>
+    <input type="text" id="name" placeholder="Ingrese el nombre">
+    <br>
+    <br>
+    <input type="text" id="email" placeholder="Ingrese el correo">
+    <br>
+    <br>
+    <input type="number" id="age" placeholder="Ingrese la edad">
+    <br>
+    <br>
+    <button onclick="enviarCliente()">Guardar</button>
+    <button onclick="actualizarCliente()">Actualizar</button>
+    <button onclick="buscarCliente()">Buscar</button>
+    <button id="consultarCli" onclick="obtenerCliente()">Consultar</button>
+    <br>
+    <br>
+    <div id="verClientes"></div>
 
-    
-    
-    <DIV id="verClientes">
-        <h1>CLIENTES</h1>
-
-    </DIV>
-
-    <p><button onclick="obtenerCliente()">VER CLIENTES</button>
-    <button onclick="limpiarTabla()">QUITAR CONSULTA</button><br></p>
-    
-    <div>
-
-        <p></p><input type="number" id= "id" placeholder="id"></p>
-        <p></p><input type="text" id= "name" placeholder="name"></p>
-        <p></p><input type="text" id= "email" placeholder="email"></p>
-        <p></p><input type="number" id= "age" placeholder="age"></p>
-        
- 
-    </div>
-
-    <button onclick="enviarCliente()">GUARDAR CLIENTES</button>
-    <button onclick="actualizarCliente()">ACTUALIZAR CLIENTES</button>
-    <button onclick="buscarCliente()">BUSCAR CLIENTE</button>
-
-    <div>
-        <h1></h1>
-    </div>
-    
+    <script src="js/cliente.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </body>
 </html> 

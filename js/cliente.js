@@ -1,31 +1,44 @@
-function obtenerCliente(){
+const BASE_URL = 'https://g0497c038904c6c-dbreto1.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/client/client';
 
+function obtenerCliente(){
     $.ajax({
-        url:"https://g56bd9babe34b36-sx5evivf3vpxi6m8.adb.mx-queretaro-1.oraclecloudapps.com/ords/admin/client/client",
+        url: BASE_URL,
         type: "GET",
         dataType: "JSON",
-
         success: function(respuesta){
             console.log(respuesta);
             mostrarClientes(respuesta.items);
-
         }
     });
 }
 
 function mostrarClientes(items){
-    let table = "<table>";
+    $('#consultarCli').text('Ocultar');
+    $('#consultarCli').attr('onclick', 'limpiarTabla()');
+
+    let myTable=
+    `<table style="border: 1px solid black">
+        <thead>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Edad</th>
+        </thead>
+        <tbody>`;
+
     for(i=0; i<items.length; i++){
-        table += "<tr>";
-        table += "<td>" + items[i].id + "</td>";
-        table += "<td>" + items[i].name + "</td>";
-        table += "<td>" + items[i].email + "</td>";
-        table += "<td>" + items[i].age + "</td>";
-        table += "<td> <button onclick='borrarCliente(" + items[i].id + ")'>BORRAR CLIENTE</button>";
-        table += "<tr>"; 
+        myTable += "<tr>";
+        myTable += "<td>" + items[i].id + "</td>";
+        myTable += "<td>" + items[i].name + "</td>";
+        myTable += "<td>" + items[i].email + "</td>";
+        myTable += "<td>" + items[i].age + "</td>";
+        myTable += "<td> <button onclick='borrarCliente(" + items[i].id + ")'>Borrar</button>";
+        myTable += "<tr>"; 
     }
-    table += "</table>";
-    $("#verClientes").append(table);
+    myTable += "</tbody></table>";
+
+    $("#verClientes").empty();
+    $("#verClientes").append(myTable);
 }
 
 function enviarCliente(){
@@ -34,93 +47,82 @@ function enviarCliente(){
         name: $("#name").val(),
         email: $("#email").val(),
         age: $("#age").val()
-};
+    };
 
-let dataToJson = JSON.stringify(dcliente);
+    let dataToSend = JSON.stringify(dcliente);
 
-$.ajax({
-    url:"https://g56bd9babe34b36-sx5evivf3vpxi6m8.adb.mx-queretaro-1.oraclecloudapps.com/ords/admin/client/client",
-    type: "POST",
-    data:dcliente,
-    dataType: "JSON"
-
+    $.ajax({
+        url: BASE_URL,
+        type: "POST",
+        data: dataToSend,
+        contentType: 'application/json',
+        success: function(respuesta){
+            obtenerCliente();
+        }
     });
-
 }
 
 function actualizarCliente(){
-        let dcliente = {
+    let dCliente = {
         id: $("#id").val(),
         name: $("#name").val(),
         email: $("#email").val(),
         age: $("#age").val()
+    };
 
-};
-
-let dataToSend = JSON.stringify(dcliente);
+    let dataToSend = JSON.stringify(dCliente);
 
     $.ajax({
-        url:"https://g56bd9babe34b36-sx5evivf3vpxi6m8.adb.mx-queretaro-1.oraclecloudapps.com/ords/admin/client/client",
+        url: BASE_URL,
         type: "PUT",
         data:dataToSend,
         contentType:"application/json",
-        dataType: "JSON",
-
         success: function(respuesta){
             console.log(respuesta);
-            $("#verClientes").empty();
-            $("#id").val(""),
-            $("#name").val(""),
-            $("#email").val(""),
-            $("#age").val("")
-
-            mostrarClientes();
-
+            $("#id").val("");
+            $("#name").val("");
+            $("#email").val("");
+            $("#age").val("");
+            obtenerCliente();
         }
     });
 }
 
 function borrarCliente(idCliente){
-    let dcliente = {
-
-        id:idCliente,
+    let dCliente = {
+        id:idCliente
     };
 
-    let dataToSend = JSON.stringify(dcliente);
+    let dataToSend = JSON.stringify(dCliente);
     
     $.ajax({
-        url:"https://g56bd9babe34b36-sx5evivf3vpxi6m8.adb.mx-queretaro-1.oraclecloudapps.com/ords/admin/client/client",
+        url: BASE_URL,
         type: "DELETE",
-        data:dataToSend,
+        data: dataToSend,
         contentType:"application/json",
-        dataType: "JSON",
-
         success: function(respuesta){
-
-            $("#verClientes").empty();
-            mostrarClientes();
-
+            obtenerCliente();
         }
-    
     });
-
 }
 
 function buscarCliente(){
-    let dcliente = $("#id").val();
-    
+    let dCliente = $("#id").val();
 
     $.ajax({
-        url:"https://g56bd9babe34b36-sx5evivf3vpxi6m8.adb.mx-queretaro-1.oraclecloudapps.com/ords/admin/client/client/" + dcliente,
+        url: `${BASE_URL}/${dCliente}`,
         type: "GET",
         dataType: "JSON",
-
         success: function(respuesta){
             console.log(respuesta);
-            
-            mostrarClientes(respuesta.items);
-
+            $("#id").val("");
+            obtenerCliente();
         }
     });
+}
 
+function limpiarTabla(){
+    $('#consultarCli').text('Consultar');
+    $('#consultarCli').attr('onclick', 'obtenerCliente()');
+    $('#verClientes').empty();
 }
