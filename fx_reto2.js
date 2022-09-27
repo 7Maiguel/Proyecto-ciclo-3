@@ -26,6 +26,7 @@ function mostrarClientes(items){
     }
     table += "</table>";
     $("#verClientes").append(table);
+    
 }
 
 function enviarCliente(){
@@ -111,7 +112,7 @@ function buscarCliente(){
     
 
     $.ajax({
-        url:"https://g56bd9babe34b36-sx5evivf3vpxi6m8.adb.mx-queretaro-1.oraclecloudapps.com/ords/admin/client/client/" + dcliente,
+        url:"https://g56bd9babe34b36-sx5evivf3vpxi6m8.adb.mx-queretaro-1.oraclecloudapps.com/ords/admin/client/cliente/" + dcliente,
         type: "GET",
         dataType: "JSON",
 
@@ -124,3 +125,20 @@ function buscarCliente(){
     });
 
 }
+
+function limpiarTabla(){
+   
+    $.ajax({
+        url:"https://g56bd9babe34b36-sx5evivf3vpxi6m8.adb.mx-queretaro-1.oraclecloudapps.com/ords/admin/client/client",
+        type: "GET",
+        dataType: "JSON",
+
+        success: function(respuesta){
+            $("#verClientes").empty();
+           
+
+        }
+    });
+     
+}
+
