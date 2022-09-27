@@ -11,19 +11,19 @@
 
     <h2>BICICLETAS !</h2>
     <form>
-        <input type="number" id="id" placeholder="Ingrese ID"/>
+        <input type="number" id="idBici" placeholder="Ingrese ID"/>
         <br>
         <br>
-        <input type="text" id="brand" placeholder="Ingrese la marca"/>
+        <input type="text" id="brandBici" placeholder="Ingrese la marca"/>
         <br>
         <br>
-        <input type="number" id="model" placeholder="Ingrese el modelo"/>
+        <input type="number" id="modelBici" placeholder="Ingrese el modelo"/>
         <br>
         <br>
-        <input type="number" id="category_id" placeholder="Ingrese la categoría"/>
+        <input type="number" id="categoryBici" placeholder="Ingrese la categoría"/>
         <br>
         <br>
-        <input type="text" id="name" placeholder="Ingrese el nombre"/>
+        <input type="text" id="nameBici" placeholder="Ingrese el nombre"/>
     </form>
     <br>
     <button onclick="guardarInformacion()">Guardar</button>
@@ -31,20 +31,20 @@
     <button id="consultarBici" onclick="traerInformacion()">Consultar</button>
     <br>
     <br>
-    <div id="resultado"></div>
+    <div id="listaBicis"></div>
 
     <h2>CLIENTES !</h2>
     <form>
-        <input type="number" id="id" placeholder="Ingrese ID">
+        <input type="number" id="idCli" placeholder="Ingrese ID">
         <br>
         <br>
-        <input type="text" id="name" placeholder="Ingrese el nombre">
+        <input type="text" id="nameCli" placeholder="Ingrese el nombre">
         <br>
         <br>
-        <input type="text" id="email" placeholder="Ingrese el correo">
+        <input type="text" id="emailCli" placeholder="Ingrese el correo">
         <br>
         <br>
-        <input type="number" id="age" placeholder="Ingrese la edad">
+        <input type="number" id="ageCli" placeholder="Ingrese la edad">
     </form>
     <br>
     <button onclick="enviarCliente()">Guardar</button>
@@ -53,7 +53,7 @@
     <button id="consultarCli" onclick="obtenerCliente()">Consultar</button>
     <br>
     <br>
-    <div id="verClientes"></div>
+    <div id="listaClientes"></div>
     
     <h2>MENSAJES !</h2>
     <textarea name="mensaje" id="mensaje" cols="60" rows="8" placeholder="Dejar un mensaje..." style="resize: none" required></textarea>
@@ -64,6 +64,8 @@
     <br>
     <br>
     <table id="listaMensajes" style="border: 1px solid black"></table>
+    <br>
+    <br>
 
     <script src="js/bicicletas.js"></script>
     <script src="js/cliente.js"></script>

@@ -38,23 +38,23 @@ function pintarRespuesta(items){
         myTable+="</tr>";
     }
     myTable+="</tbody></table>";
-    $("#resultado").empty();
-    $("#resultado").append(myTable);
+    $("#listaBicis").empty();
+    $("#listaBicis").append(myTable);
 }
 
 function ocultarRespuesta(){
     $('#consultarBici').text('Consultar');
     $('#consultarBici').attr('onclick', 'traerInformacion()');
-    $("#resultado").empty();
+    $("#listaBicis").empty();
 }
 
 function guardarInformacion(){
     let myData={
-        id:$("#id").val(),
-        brand:$("#brand").val(),
-        model:$("#model").val(),
-        category_id:$("#category_id").val(),
-        name:$("#name").val()
+        id:$("#idBici").val(),
+        brand:$("#brandBici").val(),
+        model:$("#modelBici").val(),
+        category_id:$("#categoryBici").val(),
+        name:$("#nameBici").val()
     };
 
     let dataToSend=JSON.stringify(myData);
@@ -65,11 +65,11 @@ function guardarInformacion(){
         data:dataToSend,
         contentType: 'application/json',
         success:function(respuesta){
-            $("#id").val("");
-            $("#brand").val("");
-            $("#model").val("");
-            $("#category_id").val("");
-            $("#name").val("");
+            $("#idBici").val("");
+            $("#brandBici").val("");
+            $("#modelBici").val("");
+            $("#categoryBici").val("");
+            $("#nameBici").val("");
             traerInformacion();
             alert("Se ha guardado el dato");
         }
@@ -78,11 +78,11 @@ function guardarInformacion(){
 
 function editarInformacion(){
     let myData={
-        id:$("#id").val(),
-        brand:$("#brand").val(),
-        model:$("#model").val(),
-        category_id:$("#category_id").val(),
-        name:$("#name").val(),
+        id:$("#idBici").val(),
+        brand:$("#brandBici").val(),
+        model:$("#modelBici").val(),
+        category_id:$("#categoryBici").val(),
+        name:$("#nameBici").val(),
     };
 
     let dataToSend=JSON.stringify(myData);
@@ -93,11 +93,11 @@ function editarInformacion(){
         data:dataToSend,
         contentType:"application/json",
         success:function(respuesta){
-            $("#id").val("");
-            $("#brand").val("");
-            $("#model").val("");
-            $("#category_id").val("");
-            $("#name").val("");
+            $("#idBici").val("");
+            $("#brandBici").val("");
+            $("#modelBici").val("");
+            $("#categoryBici").val("");
+            $("#nameBici").val("");
             traerInformacion();
             alert("Se ha actualizado un dato");
         }

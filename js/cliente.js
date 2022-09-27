@@ -37,16 +37,16 @@ function mostrarClientes(items){
     }
     myTable += "</tbody></table>";
 
-    $("#verClientes").empty();
-    $("#verClientes").append(myTable);
+    $("#listaClientes").empty();
+    $("#listaClientes").append(myTable);
 }
 
 function enviarCliente(){
     let dcliente = {
-        id: $("#id").val(),
-        name: $("#name").val(),
-        email: $("#email").val(),
-        age: $("#age").val()
+        id: $("#idCli").val(),
+        name: $("#nameCli").val(),
+        email: $("#emailCli").val(),
+        age: $("#ageCli").val()
     };
 
     let dataToSend = JSON.stringify(dcliente);
@@ -64,10 +64,10 @@ function enviarCliente(){
 
 function actualizarCliente(){
     let dCliente = {
-        id: $("#id").val(),
-        name: $("#name").val(),
-        email: $("#email").val(),
-        age: $("#age").val()
+        id: $("#idCli").val(),
+        name: $("#nameCli").val(),
+        email: $("#emailCli").val(),
+        age: $("#ageCli").val()
     };
 
     let dataToSend = JSON.stringify(dCliente);
@@ -79,10 +79,10 @@ function actualizarCliente(){
         contentType:"application/json",
         success: function(respuesta){
             console.log(respuesta);
-            $("#id").val("");
-            $("#name").val("");
-            $("#email").val("");
-            $("#age").val("");
+            $("#idCli").val("");
+            $("#nameCli").val("");
+            $("#emailCli").val("");
+            $("#ageCli").val("");
             obtenerCliente();
         }
     });
@@ -107,7 +107,7 @@ function borrarCliente(idCliente){
 }
 
 function buscarCliente(){
-    let dCliente = $("#id").val();
+    let dCliente = $("#idCli").val();
 
     $.ajax({
         url: `${BASE_URL_CLI}/${dCliente}`,
@@ -115,8 +115,8 @@ function buscarCliente(){
         dataType: "JSON",
         success: function(respuesta){
             console.log(respuesta);
-            $("#id").val("");
-            obtenerCliente();
+            $("#idCli").val("");
+            mostrarClientes(respuesta.items);
         }
     });
 }
@@ -124,5 +124,5 @@ function buscarCliente(){
 function limpiarTabla(){
     $('#consultarCli').text('Consultar');
     $('#consultarCli').attr('onclick', 'obtenerCliente()');
-    $('#verClientes').empty();
+    $('#listaClientes').empty();
 }
