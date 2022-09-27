@@ -31,8 +31,17 @@ function leerMensajes(){
     error: (err)=>{
       alert(`Error: Status ${err.status}`)
     },
-    complete: ()=>$('#listarMensajes').attr('disabled', true)
+    complete: ()=>{
+      $('#listarMensajes').text('Ocultar');
+      $('#listarMensajes').attr('onclick', 'ocultarMensajes()');
+    }
   })
+}
+
+function ocultarMensajes(){
+  $('#listarMensajes').text('Consultar');
+  $('#listarMensajes').attr('onclick', 'leerMensajes()');
+  $('#listaMensajes').empty();
 }
 
 function guardarMensaje(){
@@ -57,7 +66,7 @@ function guardarMensaje(){
 function formEditar(idMsg, msg){
   $('#mensaje').val(msg);
   $('#enviarMensaje').attr('onclick', `editarMensaje(${idMsg})`)
-  $('#enviarMensaje').text('EDITAR MENSAJE')
+  $('#enviarMensaje').text('Actualizar')
 }
 
 function editarMensaje(idMsg){
@@ -76,7 +85,7 @@ function editarMensaje(idMsg){
     complete: ()=>{
       $('#mensaje').val('');
       $('#enviarMensaje').attr('onclick', `guardarMensaje()`)
-      $('#enviarMensaje').text('ENVIAR MENSAJE');
+      $('#enviarMensaje').text('Guardar');
       leerMensajes();
     }
   })
