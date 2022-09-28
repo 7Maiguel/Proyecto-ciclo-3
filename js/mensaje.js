@@ -1,4 +1,5 @@
 const BASE_URL_MSG = 'https://g0497c038904c6c-dbreto1.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/message/message';
+let countID;
 
 function leerMensajes(){
   $.ajax({
@@ -27,6 +28,8 @@ function leerMensajes(){
           </tr>`
         )
       }
+
+      countID = mensajes.length;
     },
     error: (err)=>{
       alert(`Error: Status ${err.status}`)
@@ -49,6 +52,7 @@ function guardarMensaje(){
     url: BASE_URL_MSG,
     type: 'POST',
     data: JSON.stringify({
+      id: countID+1,
       messagetext: $('#mensaje').val()
     }),
     contentType: 'application/json',
