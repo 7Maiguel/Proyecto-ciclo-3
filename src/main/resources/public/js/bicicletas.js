@@ -19,22 +19,22 @@ function pintarRespuesta(items){
     let myTable= 
     `<table style="border: 1px solid black">
         <thead>
-            <th>ID</th>
             <th>Marca</th>
             <th>Modelo</th>
             <th>Categoria</th>
             <th>Nombre</th>
+            <th>Descripción</th>
         </thead>
         <tbody>`;
     
     for (let i=0; i<items.length;i++){
         myTable+="<tr>";
-        myTable+="<td>"+items[i].id+"</td>";
         myTable+="<td>"+items[i].brand+"</td>";
         myTable+="<td>"+items[i].model+"</td>";
         myTable+="<td>"+items[i].category_id+"</td>";
         myTable+="<td>"+items[i].name+"</td>";
-        myTable+="<td> <button onclick='borrarElemento("+items[i].id+")'>Borrar</button>";
+        myTable+="<td>"+items[i].description+"</td>";
+        //myTable+="<td> <button onclick='borrarElemento("+items[i].id+")'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</tbody></table>";
@@ -70,11 +70,15 @@ function guardarInformacion(){
             $("#modelBici").val("");
             $("#categoryBici").val("");
             $("#nameBici").val("");
+            $("#descriptionBike").val("");
             traerInformacion();
             alert("Se ha guardado el dato");
         }
     });
 }
+
+/**
+ *
 
 function editarInformacion(){
     let myData={
@@ -83,6 +87,7 @@ function editarInformacion(){
         model:$("#modelBici").val(),
         category_id:$("#categoryBici").val(),
         name:$("#nameBici").val(),
+        description:$("#descriptionBike").val()
     };
 
     let dataToSend=JSON.stringify(myData);
@@ -98,6 +103,7 @@ function editarInformacion(){
             $("#modelBici").val("");
             $("#categoryBici").val("");
             $("#nameBici").val("");
+            $("#descriptionBike").val("");
             traerInformacion();
             alert("Se ha actualizado un dato");
         }
@@ -122,3 +128,4 @@ function borrarElemento(idElemento){
         }
     });
 }
+ */
