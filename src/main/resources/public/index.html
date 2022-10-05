@@ -79,6 +79,8 @@
     <br />
     <br />
     <div idReservation="listaClientes"></div>
+    <br />
+    <br />
 
     <!-- Entidad de Miguel !-->
     <h2>MENSAJES !</h2>
@@ -89,7 +91,7 @@
     <br />
     <textarea
       name="mensaje"
-      idReservation="mensaje"
+      id="mensaje"
       cols="25"
       rows="6"
       placeholder="Ingresar mensaje..."
@@ -98,11 +100,10 @@
     ></textarea>
     <br />
     <br />
-    <button idReservation="enviarMensaje" onclick="guardarMensaje()">Guardar</button>
-    <button idReservation="listarMensajes" onclick="leerMensajes()">Consultar</button>
+    <button id="enviarMensaje" onclick="guardarMensaje()">Guardar</button>
+    <button id="listarMensajes" onclick="leerMensajes()">Consultar</button>
     <br />
-    <br />
-    <table idReservation="listaMensajes" style="border: 1px solid black"></table>
+    <div id="listaMensajes"></div>
     <br />
     <br />
 
@@ -153,10 +154,10 @@
     <br />
     <div idReservation="listaAdmoUser"></div>
 
-    <script src="js/bicicletas.js"></script>
-    <script src="js/cliente.js"></script>
-    <script src="js/mensaje.js"></script>
-    <script src="js/admoUser.js"></script>
+    <script src="js/bike.js"></script>
+    <script src="js/client.js"></script>
+    <script src="js/message.js"></script>
+    <script src="js/userAdmin.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </body>
 </html>
