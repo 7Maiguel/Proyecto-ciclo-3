@@ -7,7 +7,7 @@ function listReservations(){
         dataType: 'JSON',
         success: (res)=>{
             console.log('Mostrando reservas...');
-            loadData(res);
+            loadReservations(res);
         },
         error: (err)=>{
             alert(`Error: Status ${err.status}`);
@@ -15,7 +15,7 @@ function listReservations(){
     })
 }
 
-function loadData(res){
+function loadReservations(res){
     const reservations = res;
 
     $('#reservationList').empty();
@@ -38,15 +38,15 @@ function loadData(res){
                 <th>${reservations[i].bike.name}</th>
                 <td>${reservations[i].startDate.slice(0,10)}</td>
                 <td>${reservations[i].devolutionDate.slice(0,10)}</td>
-                <td><button>Calificar</button></td>
+                <td><button id="score-btn-reservation" onclick="loadScoreForm()">Calificar</button></td>
             </tr>`
         )
     }
     $('#list-btn-reservation').text('Ocultar');
-    $('#list-btn-reservation').attr('onclick', 'hideData()');
+    $('#list-btn-reservation').attr('onclick', 'hideReservations()');
 }
 
-function hideData(){
+function hideReservations(){
     $('#list-btn-reservation').text('Consultar');
     $('#list-btn-reservation').attr('onclick', 'listReservations()');
     $('#reservationList').empty();

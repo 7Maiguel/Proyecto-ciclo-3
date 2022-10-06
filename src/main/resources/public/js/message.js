@@ -7,7 +7,7 @@ function leerMensajes(){
         dataType: 'JSON',
         success: (res)=>{
             console.log('Mostrando mensajes...');
-            mostrarInfo(res);
+            mostrarInfoMensajes(res);
         },
         error: (err)=>{
             alert(`Error: Status ${err.status}`);
@@ -15,7 +15,7 @@ function leerMensajes(){
     })
 }
 
-function mostrarInfo(res){
+function mostrarInfoMensajes(res){
     let mensajes = res;
 
     $('#listaMensajes').empty();
