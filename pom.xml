@@ -8,13 +8,13 @@
         <version>2.7.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.reto_3_nftc</groupId>
-    <artifactId>Reto_3_nftc</artifactId>
+    <groupId>com.reto_3</groupId>
+    <artifactId>Reto_3</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Reto_3_nftc</name>
-    <description>Reto_3_nftc</description>
+    <name>Reto_3</name>
+    <description>Reto_3</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
