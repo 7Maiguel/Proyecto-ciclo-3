@@ -17,8 +17,8 @@ function mostrarClientes(items){
     let myTable=
         `<table style="border: 1px solid black">
         <thead>
-            <th>Name</th>
-            <th>Email</th>
+            <th>Nombre</th>
+            <th>Correo</th>
             <th>Edad</th>
         </thead>
         <tbody>`;

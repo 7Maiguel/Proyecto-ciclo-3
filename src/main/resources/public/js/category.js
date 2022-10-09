@@ -17,8 +17,8 @@ function mostrarCategoria(items){
     let myTable=
         `<table style="border: 1px solid black">
         <thead>
-               <th>nombre</th>
-            <th>descripcion</th>
+               <th>Nombre</th>
+            <th>Descripcion</th>
             
         </thead>
         <tbody>`;
