@@ -1,8 +1,8 @@
-const BASE_URL_BIKE = 'http://141.148.81.115/';
+const BASE_URL_BIKE = 'http://141.148.81.115';
 
 function traerInformacion(){
     $.ajax({
-        url: BASE_URL_BIKE +'api/Bike/all',
+        url: BASE_URL_BIKE +'/api/Bike/all',
         type:"GET",
         dataType:"JSON",
         success: function(respuesta){
@@ -61,7 +61,7 @@ function guardarInformacion(){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_BIKE+'api/Bike/save',
+        url:BASE_URL_BIKE+'/api/Bike/save',
         type:"POST",
         data:dataToSend,
         contentType: 'application/json',
@@ -88,7 +88,7 @@ function guardarInformacion(){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_BIKE+'api/Bike',
+        url:BASE_URL_BIKE+'/api/Bike',
         type:"PUT",
         data:dataToSend,
         contentType:"application/json",
@@ -112,7 +112,7 @@ function guardarInformacion(){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_BIKE+'api/Bike',
+        url:BASE_URL_BIKE+'/api/Bike',
         type:"DELETE",
         data:dataToSend,
         contentType: "application/json",

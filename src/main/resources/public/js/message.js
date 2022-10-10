@@ -3,7 +3,7 @@
 
 function leerMensajes(){
     $.ajax({
-        url: BASE_URL_BIKE+'api/Message/all',
+        url: BASE_URL_BIKE+'/api/Message/all',
         type: 'GET',
         dataType: 'JSON',
         success: (res)=>{
