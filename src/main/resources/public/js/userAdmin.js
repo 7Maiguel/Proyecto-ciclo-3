@@ -1,4 +1,4 @@
-const BASE_URL_ADMOUSER ='http://141.148.81.115/'
+const BASE_URL_ADMOUSER ='http://141.148.81.115'
 
 function getAdmoUser(){
     $.ajax({
