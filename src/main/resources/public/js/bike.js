@@ -35,7 +35,7 @@ function pintarRespuesta(items){
         myTable+="<td>"+items[i].name+"</td>";
         myTable+="<td>"+items[i].description+"</td>";
         myTable+="<td> <button onclick='borrarElemento("+items[i].id+")'>Borrar</button>";
-        myTable+="<td> <button onclick='editarInformacion("+items[i]+")'>Editar</button>";
+        myTable+="<td> <button onclick='editarInformacion("+JSON.stringify(items[i])+")'>Editar</button>";
         myTable+="</tr>";
     }
     myTable+="</tbody></table>";
@@ -79,15 +79,22 @@ function guardarInformacion(){
 }
 
 
- function editarInformacion(idElemento){
+ function editarInformacion(elemento){
+     $("#brandBici").val(elemento.brand);
+     $("#modelBici").val(elemento.year);
+     $("#categoryBici").val(elemento.category.id);
+     $("#nameBici").val(elemento.name);
+     $("#descriptionBike").val(elemento.description);
 
-     let myData={
+     /*let myData={
          id:idElemento
      };
+*/
 
-    let dataToSend=JSON.stringify(myData);
+    //let dataToSend=JSON.stringify(myData);
 
-    $.ajax({
+
+   /* $.ajax({
         url:BASE_URL_BIKE+'/api/Bike',
         type:"PUT",
         data:dataToSend,
@@ -101,7 +108,7 @@ function guardarInformacion(){
             traerInformacion();
             alert("Se ha actualizado un dato");
         }
-    });
+    });*/
 }
 
  function borrarElemento(idElemento){
