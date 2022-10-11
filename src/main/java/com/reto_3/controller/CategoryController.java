@@ -19,8 +19,10 @@ public class CategoryController {
         return categoryService.getAll();
     }
 
-    @PostMapping("/save")
+
+    @PostMapping("/all")
     public Category postCategory(@RequestBody Category category){
         return categoryService.save(category);
     }
+
 }

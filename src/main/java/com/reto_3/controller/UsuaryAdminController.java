@@ -20,7 +20,7 @@ public class UsuaryAdminController {
         return usuaryAdminService.getAll();
     }
 
-    @PostMapping("/save")
+    @PostMapping("/all")
     public UsuaryAdmin postAdmin(@RequestBody UsuaryAdmin usuaryAdmin){
         return usuaryAdminService.save(usuaryAdmin);
     }

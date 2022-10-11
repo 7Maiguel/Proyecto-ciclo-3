@@ -19,7 +19,7 @@ public class BikeController {
         return bikeService.getAll();
     }
 
-    @PostMapping("/save")
+    @PostMapping("/all")
     public Bike postBike(@RequestBody Bike bike){
         return bikeService.save(bike);
     }

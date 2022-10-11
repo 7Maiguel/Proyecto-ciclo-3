@@ -14,7 +14,7 @@ public class ScoreController {
     @Autowired
     private ScoreService scoreService;
 
-    @PostMapping("/save")
+    @PostMapping("/all")
     public Score postScore(@RequestBody Score data){
         return scoreService.save(data);
     }
