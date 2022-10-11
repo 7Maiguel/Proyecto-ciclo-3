@@ -4,6 +4,7 @@ package com.reto_3.controller;
 import com.reto_3.entity.Client;
 import com.reto_3.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class ClientController {
     }
 
     @PostMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
     public Client postClient(@RequestBody Client client){
         return clientService.save(client);
     }

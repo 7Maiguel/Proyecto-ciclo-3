@@ -4,6 +4,7 @@ package com.reto_3.controller;
 import com.reto_3.entity.Reservation;
 import com.reto_3.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class ReservationController {
     }
 
     @PostMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
     public Reservation postReservation(@RequestBody Reservation reservation){
         return reservationService.save(reservation);
     }
