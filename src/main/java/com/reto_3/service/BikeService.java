@@ -40,17 +40,20 @@ public class BikeService {
         if(bike.getId()!=null){
             Optional<Bike> q = bikeRepository.getBike(bike.getId());
             if(q.isPresent()){
-                Field[] fields = q.get().getClass().getDeclaredFields();
-                for (Field field: fields) {
-                    field.setAccessible(true);
-                    try {
-                        Object value=field.get(bike);
-                        if(value!=null){
-                            field.set(q.get(),value);
-                        }
-                    } catch (IllegalAccessException e) {
-                        throw new RuntimeException(e);
-                    }
+                if(bike.getBrand()!=null){
+                    q.get().setBrand(bike.getBrand());
+                }
+                if(bike.getYear()!=null){
+                    q.get().setYear(bike.getYear());
+                }
+                if(bike.getCategory()!=null){
+                    q.get().setCategory(bike.getCategory());
+                }
+                if (bike.getName()!=null){
+                    q.get().setName(bike.getName());
+                }
+                if(bike.getDescription()!=null) {
+                    q.get().setDescription(bike.getDescription());
                 }
                 bikeRepository.save(q.get());
                 return q.get();

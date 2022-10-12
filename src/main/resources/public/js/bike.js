@@ -81,7 +81,6 @@ function guardarInformacion(){
 
  function editarInformacion(id, brand, year, category, name, description){
 
-
      $("#brandBici").val(brand);
      $("#modelBici").val(brand);
      $("#categoryBici").val(year);
