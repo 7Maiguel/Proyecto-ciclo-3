@@ -12,6 +12,7 @@
 
     <h2>BICICLETAS !</h2>
     <form>
+      <input type="text" id="idBici" placeholder="Ingrese el Id solo si desea modificarlo" />
       <input type="text" id="brandBici" placeholder="Ingrese la marca" />
       <input type="text" id="modelBici" placeholder="Ingrese el modelo" />
       <input type="text" id="categoryBici" placeholder="Ingrese la categoría"/>
@@ -20,6 +21,7 @@
     </form>
     <br />
     <button onclick="guardarInformacion()">Guardar</button>
+    <button onclick="editarInformacion()">Actualizar</button>
     <button id="consultarBici" onclick="traerInformacion()">Consultar</button>
     <br />
     <br />

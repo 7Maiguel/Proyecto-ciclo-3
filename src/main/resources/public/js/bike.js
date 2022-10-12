@@ -35,8 +35,7 @@ function pintarRespuesta(items){
         myTable+="<td>"+items[i].name+"</td>";
         myTable+="<td>"+items[i].description+"</td>";
         myTable+="<td> <button onclick='borrarElemento("+items[i].id+")'>Borrar</button>";
-        myTable+="<td> <button onclick='editarInformacion('"+items[i].id+"','"+items[i].brand+"','"+items[i].year+"','"+items[i].category+"','"+items[i].name+"','"+items[i].description+"')'>Editar</button>";
-        myTable+="</tr>";
+
     }
     myTable+="</tbody></table>";
     $("#listaBicis").empty();
@@ -79,15 +78,14 @@ function guardarInformacion(){
 }
 
 
- function editarInformacion(id, brand, year, category, name, description){
-
-     $("#brandBici").val(brand);
-     $("#modelBici").val(brand);
-     $("#categoryBici").val(year);
-     $("#nameBici").val(name);
-     $("#descriptionBike").val(description);
+ function editarInformacion(){
      let myData={
-         id:id
+         id:$("#idBice").val(""),
+         brand:$("#brandBici").val(""),
+         year:$("#modelBici").val(""),
+         category:{id:$("#categoryBici").val()},
+         name: $("#nameBici").val(""),
+         description:$("#descriptionBike").val(""),
      };
 
     let dataToSend=JSON.stringify(myData);
@@ -100,7 +98,7 @@ function guardarInformacion(){
         success:function(respuesta){
             $("#brandBici").val("");
             $("#modelBici").val("");
-            $("#categoryBici").val("");
+            $("#categoryBici").val();
             $("#nameBici").val("");
             $("#descriptionBike").val("");
             traerInformacion();
