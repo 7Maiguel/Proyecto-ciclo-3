@@ -43,8 +43,8 @@ public class BikeController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteBike(@PathVariable Bike bike){
-        bikeService.delete(bike.getId());
+    public void deleteBike(@PathVariable("id")int id){
+        bikeService.delete(id);
     }
     @DeleteMapping("/all")
     @ResponseStatus(HttpStatus.NO_CONTENT)
