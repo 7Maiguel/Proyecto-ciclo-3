@@ -81,11 +81,11 @@ function guardarInformacion(){
  function editarInformacion(){
      let myData={
          id:$('#idBici').val(),
-         brand:$("#brandBici").val(""),
-         year:$("#modelBici").val(""),
+         brand:$("#brandBici").val(),
+         year:$("#modelBici").val(),
          category:{id:$("#categoryBici").val()},
-         name: $("#nameBici").val(""),
-         description:$("#descriptionBike").val(""),
+         name: $("#nameBici").val(),
+         description:$("#descriptionBike").val(),
      };
 
     let dataToSend=JSON.stringify(myData);
