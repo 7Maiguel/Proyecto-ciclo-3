@@ -25,7 +25,8 @@ public class UsuaryAdminRepository {
         return usuaryAdminCrudRepository.findById(id);
     }
 
-    /*public void delete(UsuaryAdmin usuaryAdmin){
+
+    public void deleteAdmin(UsuaryAdmin usuaryAdmin){
         usuaryAdminCrudRepository.delete(usuaryAdmin);
-    }*/
+    }
 }

@@ -110,13 +110,14 @@
 
     <h2>USUARIOS ADMINISTRATIVOS !</h2>
     <form>
+      <input type="number" id="idUsuarioAdmo" placeholder="Id solo para actualizar">
       <input type="text" id="nombreUsuarioAdmo" placeholder="Ingrese su nombre"/>
       <input type="text" id="emailUsuarioAdmo" placeholder="Ingrese su correo electrónico"/>
       <input type="text" id="passwordUsuarioAdmo" placeholder="Ingrese su contraseña"/>
     </form>
     <br />
     <button onclick="guardarAdmoUser()">Guardar</button>
-    <!-- <button onclick="editarAdmoUser()">Actualizar</button>-->
+    <button onclick="editarAdmoUser()">Actualizar</button>
     <button id="consultarAdmoUser" onclick="getAdmoUser()">Consultar</button>
     <br />
     <br />

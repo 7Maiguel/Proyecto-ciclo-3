@@ -37,9 +37,9 @@ public class UsuaryAdminService {
         }
     }
 
-    /*public UsuaryAdmin  update(UsuaryAdmin  usuaryAdmin){
-        if(usuaryAdmin.getIdReservation()!=null){
-            Optional<UsuaryAdmin > q = usuaryAdminRepository.getUsuaryAdmin(usuaryAdmin.getIdReservation());
+    public UsuaryAdmin  update(UsuaryAdmin  usuaryAdmin){
+        if(usuaryAdmin.getId()!=null){
+            Optional<UsuaryAdmin > q = usuaryAdminRepository.getUsuaryAdmin(usuaryAdmin.getId());
             if(q.isPresent()){
                 if(usuaryAdmin.getName()!=null){
                     q.get().setName(usuaryAdmin.getName());
@@ -63,17 +63,17 @@ public class UsuaryAdminService {
         }else {
             return usuaryAdmin;
         }
-    }*/
+    }
 
 
-    /*public boolean delete(int id){
+    public boolean delete(int id){
         Boolean flag=false;
         Optional<UsuaryAdmin > usuaryAdmin= usuaryAdminRepository.getUsuaryAdmin(id);
         if(usuaryAdmin.isPresent()){
-            usuaryAdminRepository.delete(usuaryAdmin.get());
+            usuaryAdminRepository.deleteAdmin(usuaryAdmin.get());
             flag=true;
         }
 
         return flag;
-    }*/
+    }
 }

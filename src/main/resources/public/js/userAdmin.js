@@ -65,7 +65,7 @@ function guardarAdmoUser(){
         }
     });
 }
-/**
+
  function editarAdmoUser(){
     let myData={
         name:$("#nombreUsuarioAdmo").val(),
@@ -76,7 +76,7 @@ function guardarAdmoUser(){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_BIKE,
+        url:BASE_URL_BIKE+'/api/Admin',
         type:"PUT",
         data:dataToSend,
         contentType:"application/json",
@@ -98,7 +98,7 @@ function guardarAdmoUser(){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_BIKE,
+        url:BASE_URL_ADMOUSER+'/api/Admin',
         type:"DELETE",
         data:dataToSend,
         contentType: "application/json",
@@ -108,4 +108,3 @@ function guardarAdmoUser(){
         }
     });
 }
- */

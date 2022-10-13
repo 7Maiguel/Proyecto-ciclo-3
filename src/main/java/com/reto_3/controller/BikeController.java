@@ -30,12 +30,12 @@ public class BikeController {
     public Bike postBike1(@RequestBody Bike bike){
         return bikeService.save(bike);
     }
-    @PutMapping
+    @PutMapping("/update")
     public Bike putBike(@RequestBody Bike bike){
         return bikeService.update(bike);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void deleteBike(@RequestBody Bike bike){
         bikeService.delete(bike.getId());
     }

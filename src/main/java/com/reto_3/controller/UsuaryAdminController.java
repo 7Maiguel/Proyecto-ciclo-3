@@ -21,9 +21,18 @@ public class UsuaryAdminController {
         return usuaryAdminService.getAll();
     }
 
-    @PostMapping("/all")
+    @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public UsuaryAdmin postAdmin(@RequestBody UsuaryAdmin usuaryAdmin){
         return usuaryAdminService.save(usuaryAdmin);
+    }
+
+    @PutMapping("/update")
+    public UsuaryAdmin putAdmin(@RequestBody UsuaryAdmin usuaryAdmin){
+        return usuaryAdminService.update(usuaryAdmin);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteAdmin(@RequestBody UsuaryAdmin usuaryAdmin ){
+        usuaryAdminService.delete(usuaryAdmin.getId());
     }
 }
