@@ -35,12 +35,12 @@ public class ReservationService {
         }
     }
 
-    /*public Reservation  update(Reservation  reservation){
+    public Reservation  update(Reservation  reservation){
         if(reservation.getIdReservation()!=null){
             Optional<Reservation > q = reservationRepository.getReservation(reservation.getIdReservation());
             if(q.isPresent()){
-                if(reservation.getStarDate()!=null){
-                    q.get().setStarDate(reservation.getStarDate());
+                if(reservation.getStartDate()!=null){
+                    q.get().setStartDate(reservation.getStartDate());
                 }
 
                 if(reservation.getDevolutionDate()!=null){
@@ -57,17 +57,16 @@ public class ReservationService {
         }else {
             return reservation;
         }
-    }*/
+    }
 
-
-    /*public boolean delete(int idReservation){
+    public boolean delete(int idReservation){
          Boolean flag=false;
         Optional<Reservation > reservation= reservationRepository.getReservation(idReservation);
         if(reservation.isPresent()){
-            reservationRepository.delete(reservation.get());
+            reservationRepository.deleteReservation(reservation.get().getIdReservation());
             flag=true;
         }
 
         return flag;
-    }*/
+    }
 }

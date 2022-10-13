@@ -25,7 +25,9 @@ public class ReservationRepository {
         return reservationCrudRepository.findById(idReservation);
     }
 
-    /*public void delete(Reservation reservation){
-        reservationCrudRepository.delete(reservation);
-    }*/
+    public void deleteReservation(Integer id){
+        reservationCrudRepository.deleteById(id);
+    }
+
+
 }

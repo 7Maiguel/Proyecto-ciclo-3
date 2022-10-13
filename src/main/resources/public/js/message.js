@@ -71,15 +71,15 @@ function guardarMensaje(){
     })
 }
 
-/*function formEditar(idMsg, msg){
+function formEditar(idMsg, msg){
     $('#mensaje').val(msg);
     $('#enviarMensaje').attr('onclick', `editarMensaje(${idMsg})`)
     $('#enviarMensaje').text('Actualizar')
-}*/
+}
 
-/*function editarMensaje(idMsg){
+function editarMensaje(idMsg){
     $.ajax({
-        url: BASE_URL_MSG,
+        url: BASE_URL_BIKE+'/api/Message/update',
         type: 'PUT',
         data: JSON.stringify({
             id: idMsg,
@@ -97,11 +97,10 @@ function guardarMensaje(){
             leerMensajes();
         }
     })
-}*/
-
-/*function borrarMensaje(idMsg){
+}
+function borrarMensaje(idMsg){
     $.ajax({
-        url: BASE_URL_MSG,
+        url: BASE_URL_BIKE+'/api/Message/{id}',
         type: 'DELETE',
         data: JSON.stringify({id:idMsg}),
         contentType: 'application/json',
@@ -113,7 +112,7 @@ function guardarMensaje(){
         },
         complete: ()=>leerMensajes()
     })
-}*/
+}
 
 function clearMessage(){
     $('#clientId-message').val('');

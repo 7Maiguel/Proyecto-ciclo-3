@@ -35,9 +35,9 @@ public class MessageService {
         }
     }
 
-    /*public Message  update(Message  message){
-        if(message.getIdReservation()!=null){
-            Optional<Message > q = messageRepository.getMessage(message.getIdReservation());
+    public Message  update(Message  message){
+        if(message.getIdMessage()!=null){
+            Optional<Message > q = messageRepository.getMessage(message.getIdMessage());
             if(q.isPresent()){
                 if(message.getMessageText()!=null){
                     q.get().setMessageText(message.getMessageText());
@@ -53,17 +53,17 @@ public class MessageService {
         }else {
             return message;
         }
-    }*/
+    }
 
 
-    /*public boolean delete(int idMessage){
+    public boolean delete(int idMessage){
         Boolean flag=false;
         Optional<Message > message= messageRepository.getMessage(idMessage);
         if(message.isPresent()){
-            messageRepository.delete(message.get());
+            messageRepository.deleteMessage(message.get().getIdMessage());
             flag=true;
         }
 
         return flag;
-    }*/
+    }
 }

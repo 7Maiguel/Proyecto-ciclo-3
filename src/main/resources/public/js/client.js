@@ -29,7 +29,7 @@ function mostrarClientes(items){
         myTable += "<td>" + items[i].name + "</td>";
         myTable += "<td>" + items[i].email + "</td>";
         myTable += "<td>" + items[i].age + "</td>";
-
+        myTable += "<td> <button onclick='borrarCliente("+items[i].id+")'>Borrar</button>";
         //myTable += "<td>" + items[i].message.name + "</td>";
         //myTable += "<td>" + items[i].reservation.name "</td>";
         myTable += "<tr>";
@@ -53,7 +53,6 @@ function enviarCliente(){
         email: $("#emailCli").val(),
         name: $("#nameCli").val(),
         age: $("#ageCli").val()
-
         //category:{id:$("#categoryBici").val()},
         //message:{id:$("#messageCli").val()}
     };
@@ -78,21 +77,20 @@ function enviarCliente(){
     });
 }
 
-/**
- *
-
  function actualizarCliente(){
     let dCliente = {
         id: $("#idCli").val(),
         name: $("#nameCli").val(),
         email: $("#emailCli").val(),
-        age: $("#ageCli").val()
+        age: $("#ageCli").val(),
+        category:{id:$("#categoryBici").val()},
+        message:{id:$("#messageCli").val()}
     };
 
     let dataToSend = JSON.stringify(dCliente);
 
     $.ajax({
-        url: BASE_URL_CLI,
+        url: BASE_URL_BIKE+ '/api/Client/update',
         type: "PUT",
         data:dataToSend,
         contentType:"application/json",
@@ -115,7 +113,7 @@ function enviarCliente(){
     let dataToSend = JSON.stringify(dCliente);
 
     $.ajax({
-        url: BASE_URL_CLI,
+        url: BASE_URL_BIKE+'/api/Client/{id}',
         type: "DELETE",
         data: dataToSend,
         contentType:"application/json",
@@ -129,7 +127,7 @@ function enviarCliente(){
     let dCliente = $("#idCli").val();
 
     $.ajax({
-        url: `${BASE_URL_CLI}/${dCliente}`,
+        url: `${BASE_URL_BIKE}/${dCliente}`,
         type: "GET",
         dataType: "JSON",
         success: function(respuesta){
@@ -146,4 +144,3 @@ function enviarCliente(){
     $('#consultarCli').attr('onclick', 'obtenerCliente()');
     $('#listaClientes').empty();
 }
- */

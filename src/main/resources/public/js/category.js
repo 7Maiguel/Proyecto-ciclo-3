@@ -29,7 +29,7 @@ function mostrarCategoria(items){
 
         myTable += "<td>" + items[i].name + "</td>";
         myTable += "<td>" + items[i].description + "</td>";
-
+        myTable += "<td> <button onclick='borrarCategory("+items[i].id+")'>Borrar</button>"
         myTable += "<tr>";
     }
     myTable += "</tbody></table>";
@@ -65,6 +65,47 @@ function enviarCategoria(){
             $("#descripcionCat").val("");
             obtenerCategoria();
             alert("Se ha guardado la categoria");
+        }
+    });
+}
+function updateCategory(){
+    let myData={
+        id:$('#idCategory').val(),
+        name:$("#nameCat").val(),
+        description:$("#descripcionCat").val(),
+    };
+
+    let dataToSend=JSON.stringify(myData);
+
+    $.ajax({
+        url:BASE_URL_CAT+'/api/Category/update',
+        type:"PUT",
+        data:dataToSend,
+        contentType:"application/json",
+        success:function(respuesta){
+            $("#nameCat").val("");
+            $("#descripcionCat").val("");
+            obtenerCategoria();
+            alert("Se ha actualizado un dato");
+        }
+    });
+}
+
+function borrarCategory(idElemento){
+    let myData={
+        id:idElemento
+    };
+
+    let dataToSend=JSON.stringify(myData);
+
+    $.ajax({
+        url:BASE_URL_CAT+'/api/Bike/{id}',
+        type:"DELETE",
+        data:dataToSend,
+        contentType: "application/json",
+        success:function(respuesta){
+            obtenerCategoria();
+            alert("Se ha eliminado un dato");
         }
     });
 }

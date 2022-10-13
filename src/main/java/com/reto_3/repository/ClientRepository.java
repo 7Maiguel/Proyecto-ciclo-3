@@ -28,7 +28,7 @@ public class ClientRepository {
         return clientCrudRepository.findById(idClient);
     }
 
-    /*public void delete(Client client){
-        clientCrudRepository.delete(client);
-    }*/
+    public void deleteClient(Integer id){
+        clientCrudRepository.deleteById(id);
+    }
 }

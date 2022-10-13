@@ -35,9 +35,9 @@ public class CategoryService {
         }
     }
 
-    /*public Category update(Category category){
-        if(category.getIdReservation()!=null){
-            Optional<Category> q = categoryRepository.getCategory(category.getIdReservation());
+    public Category update(Category category){
+        if(category.getId()!=null){
+            Optional<Category> q = categoryRepository.getCategory(category.getId());
             if(q.isPresent()){
                 if(category.getName()!=null){
                     q.get().setName(category.getName());
@@ -56,17 +56,17 @@ public class CategoryService {
         }else {
             return category;
         }
-    }*/
+    }
 
 
-    /*public boolean delete(int id){
+    public boolean delete(int id){
         Boolean flag=false;
         Optional<Category> category= categoryRepository.getCategory(id);
         if(category.isPresent()){
-            categoryRepository.delete(category.get());
+            categoryRepository.deleteCategory(category.get().getId());
             flag=true;
         }
 
         return flag;
-    }*/
+    }
 }

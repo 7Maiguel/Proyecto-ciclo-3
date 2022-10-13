@@ -26,7 +26,7 @@ public class MessageRepository {
         return messageCrudRepository.findById(idMessage);
     }
 
-    /*public void delete(Message message){
-        messageCrudRepository.delete(message);
-    }*/
+    public void deleteMessage(Integer id){
+        messageCrudRepository.deleteById(id);
+    }
 }

@@ -1,6 +1,7 @@
 package com.reto_3.controller;
 
 
+import com.reto_3.entity.Bike;
 import com.reto_3.entity.Message;
 import com.reto_3.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,15 @@ public class MessageController {
     @ResponseStatus(HttpStatus.CREATED)
     public Message postMessage2(@RequestBody Message message){
         return messageService.save(message);
+    }
+
+    @PutMapping("/update")
+    public Message putMessage(@RequestBody Message message){
+        return messageService.update(message);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteMessage(@RequestBody Message message){
+        messageService.delete(message.getIdMessage());
     }
 }

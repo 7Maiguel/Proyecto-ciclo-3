@@ -85,7 +85,7 @@ function guardarInformacion(){
          year:$("#modelBici").val(),
          category:{id:$("#categoryBici").val()},
          name: $("#nameBici").val(),
-         description:$("#descriptionBike").val(),
+         description:$("#descriptionBike").val()
      };
 
     let dataToSend=JSON.stringify(myData);

@@ -1,6 +1,7 @@
 package com.reto_3.controller;
 
 
+import com.reto_3.entity.Bike;
 import com.reto_3.entity.Client;
 import com.reto_3.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,4 +31,15 @@ public class ClientController {
     public Client postClient2(@RequestBody Client client){
         return clientService.save(client);
     }
+
+    @PutMapping("/update")
+    public Client putClient(@RequestBody Client client){
+        return clientService.update(client);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteClient(@RequestBody Client client){
+        clientService.delete(client.getIdClient());
+    }
+
 }

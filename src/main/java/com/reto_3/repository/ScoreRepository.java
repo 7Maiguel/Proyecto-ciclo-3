@@ -24,4 +24,9 @@ public class ScoreRepository {
     public Score save(Score data){
         return scoreCrudRepository.save(data);
     }
+
+    public void deleteScore(Integer id){
+        scoreCrudRepository.deleteById(id);
+    }
+
 }

@@ -35,9 +35,9 @@ public class ClientService {
         }
     }
 
-    /*public Client  update(Client  client){
-        if(client.getIdReservation()!=null){
-            Optional<Client > q = clientRepository.getClient(client.getIdReservation());
+    public Client  update(Client  client){
+        if(client.getIdClient()!=null){
+            Optional<Client > q = clientRepository.getClient(client.getIdClient());
             if(q.isPresent()){
                 if(client.getName()!=null){
                     q.get().setName(client.getName());
@@ -48,7 +48,6 @@ public class ClientService {
                 if(client.getPassword()!=null){
                     q.get().setPassword(client.getPassword());
                 }
-
                 if(client.getAge()!=null){
                     q.get().setAge(client.getAge());
                 }
@@ -63,17 +62,17 @@ public class ClientService {
         }else {
             return client;
         }
-    }*/
+    }
 
 
-    /*public boolean delete(int id){
+    public boolean delete(int id){
         Boolean flag=false;
-        Optional<Client > client=clientRepository.getClient(id);
+        Optional<Client> client=clientRepository.getClient(id);
         if(client.isPresent()){
-            clientRepository.delete(client.get());
+            clientRepository.deleteClient(client.get().getIdClient());
             flag=true;
         }
 
         return flag;
-    }*/
+    }
 }
