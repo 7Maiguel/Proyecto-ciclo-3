@@ -80,7 +80,6 @@ function guardarInformacion(){
 
  function editarInformacion(){
      let myData={
-         id:$("#idBice").val(""),
          brand:$("#brandBici").val(""),
          year:$("#modelBici").val(""),
          category:{id:$("#categoryBici").val()},
