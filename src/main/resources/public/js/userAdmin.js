@@ -28,7 +28,7 @@ function pintarRespuestaAdmoUser(items){
         myTable+="<tr>";
         myTable+="<td>"+items[i].name+"</td>";
         myTable+="<td>"+items[i].email+"</td>";
-        //myTable+="<td> <button onclick='borrarAdmoUser("+items[i].id+")'>Borrar</button>";
+        myTable+="<td> <button onclick='borrarAdmoUser("+items[i].id+")'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</tbody></table>";
@@ -77,7 +77,7 @@ function guardarAdmoUser(){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_BIKE+'/api/Admin',
+        url:BASE_URL_BIKE+'/api/Admin/update',
         type:"PUT",
         data:dataToSend,
         contentType:"application/json",
@@ -99,7 +99,7 @@ function guardarAdmoUser(){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_ADMOUSER+'/api/Admin',
+        url:BASE_URL_ADMOUSER+'/api/Admin/{id}',
         type:"DELETE",
         data:dataToSend,
         contentType: "application/json",
