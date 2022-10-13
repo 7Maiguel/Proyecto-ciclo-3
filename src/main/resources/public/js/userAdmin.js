@@ -68,6 +68,7 @@ function guardarAdmoUser(){
 
  function editarAdmoUser(){
     let myData={
+        id:$('#idUsuarioAdmo').val(),
         name:$("#nombreUsuarioAdmo").val(),
         email:$("#emailUsuarioAdmo").val(),
         password:$("#passwordUsuarioAdmo").val(),
