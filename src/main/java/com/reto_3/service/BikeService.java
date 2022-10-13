@@ -14,20 +14,20 @@ public class BikeService {
     @Autowired
     private BikeRepository bikeRepository;
 
-    public List<Bike> getAll(){
+    public List<Bike> getAll() {
         return bikeRepository.getAll();
     }
 
-    public Optional<Bike> getBike(int id){
+    public Optional<Bike> getBike(int id) {
         return bikeRepository.getBike(id);
     }
 
-    public Bike save(Bike bike){
-        if(bike.getId()==null){
+    public Bike save(Bike bike) {
+        if (bike.getId() == null) {
             return bikeRepository.save(bike);
         } else {
-            Optional<Bike> e=bikeRepository.getBike(bike.getId());
-            if(e.isEmpty()){
+            Optional<Bike> e = bikeRepository.getBike(bike.getId());
+            if (e.isEmpty()) {
                 return bikeRepository.save(bike);
             } else {
                 return bike;
@@ -35,45 +35,49 @@ public class BikeService {
         }
     }
 
-    public Bike update(Bike bike){
-        if(bike.getId()!=null){
+    public Bike update(Bike bike) {
+        if (bike.getId() != null) {
             Optional<Bike> q = bikeRepository.getBike(bike.getId());
-            if(q.isPresent()){
-                if(bike.getBrand()!=null){
+            if (q.isPresent()) {
+                if (bike.getBrand() != null) {
                     q.get().setBrand(bike.getBrand());
                 }
-                if(bike.getYear()!=null){
+                if (bike.getYear() != null) {
                     q.get().setYear(bike.getYear());
                 }
-                if(bike.getCategory()!=null){
+                if (bike.getCategory() != null) {
                     q.get().setCategory(bike.getCategory());
                 }
-                if (bike.getName()!=null){
+                if (bike.getName() != null) {
                     q.get().setName(bike.getName());
                 }
-                if(bike.getDescription()!=null) {
+                if (bike.getDescription() != null) {
                     q.get().setDescription(bike.getDescription());
                 }
                 bikeRepository.save(q.get());
                 return q.get();
 
-            }else {
+            } else {
                 return bike;
             }
 
-        }else {
+        } else {
             return bike;
         }
     }
 
 
-    public boolean delete(int id){
-        Boolean flag=false;
-        Optional<Bike> bike=bikeRepository.getBike(id);
-        if(bike.isPresent()){
+    public boolean delete(int id) {
+        Boolean flag = false;
+        Optional<Bike> bike = bikeRepository.getBike(id);
+        if (bike.isPresent()) {
             bikeRepository.deleteBike(bike.get().getId());
-            flag=true;
+            flag = true;
         }
         return flag;
+    }
+
+    public void deleteAll() {
+        bikeRepository.deleteBikes();
     }
 }

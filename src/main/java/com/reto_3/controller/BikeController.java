@@ -48,7 +48,7 @@ public class BikeController {
     }
     @DeleteMapping("/all")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteBike1(@PathVariable Bike bike){
-        bikeService.delete(bike.getId());
+    public void deleteBike1(){
+        bikeService.deleteAll();
     }
 }
