@@ -80,6 +80,7 @@ function guardarInformacion(){
 
  function editarInformacion(){
      let myData={
+         id:$('#idBici').val(),
          brand:$("#brandBici").val(""),
          year:$("#modelBici").val(""),
          category:{id:$("#categoryBici").val()},
@@ -90,7 +91,7 @@ function guardarInformacion(){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_BIKE+'/api/Bike',
+        url:BASE_URL_BIKE+'/api/Bike/update',
         type:"PUT",
         data:dataToSend,
         contentType:"application/json",
@@ -114,7 +115,7 @@ function guardarInformacion(){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_BIKE+'/api/Bike',
+        url:BASE_URL_BIKE+'/api/Bike/{id}',
         type:"DELETE",
         data:dataToSend,
         contentType: "application/json",
