@@ -20,11 +20,11 @@ public class BikeController {
         return bikeService.getAll();
     }
 
-    /*@PostMapping("/all")
+    @PostMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
     public Bike postBike(@RequestBody Bike bike){
         return bikeService.save(bike);
-    }*/
+    }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Bike postBike1(@RequestBody Bike bike){

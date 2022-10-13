@@ -35,7 +35,6 @@ function pintarRespuesta(items){
         myTable+="<td>"+items[i].name+"</td>";
         myTable+="<td>"+items[i].description+"</td>";
         myTable+="<td> <button onclick='borrarElemento("+items[i].id+")'>Borrar</button>";
-
     }
     myTable+="</tbody></table>";
     $("#listaBicis").empty();
