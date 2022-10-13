@@ -31,13 +31,24 @@ public class BikeController {
         return bikeService.save(bike);
     }
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Bike putBike(@RequestBody Bike bike){
+        return bikeService.update(bike);
+    }
+    @PutMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Bike putBike1(@RequestBody Bike bike){
         return bikeService.update(bike);
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBike(@RequestBody Bike bike){
         bikeService.delete(bike.getId());
     }
-
+    @DeleteMapping("/all")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteBike1(@RequestBody Bike bike){
+        bikeService.delete(bike.getId());
+    }
 }

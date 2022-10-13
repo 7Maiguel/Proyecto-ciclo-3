@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/Category")
+@CrossOrigin(origins = "*",methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
@@ -35,13 +36,15 @@ public class CategoryController {
     }
 
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Category putCategory(@RequestBody Category category){
         return categoryService.update(category);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCategory(@RequestBody Bike bike){
-        categoryService.delete(bike.getId());
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteCategory(@PathVariable("id") int id){
+        categoryService.delete(id);
     }
 
 }
