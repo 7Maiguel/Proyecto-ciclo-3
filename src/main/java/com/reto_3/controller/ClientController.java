@@ -33,7 +33,14 @@ public class ClientController {
     }
 
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Client putClient(@RequestBody Client client){
+        return clientService.update(client);
+    }
+
+    @PutMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Client putClient2(@RequestBody Client client){
         return clientService.update(client);
     }
 
