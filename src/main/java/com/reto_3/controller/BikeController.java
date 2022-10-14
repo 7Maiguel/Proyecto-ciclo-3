@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/Bike")
+@CrossOrigin(origins = "*",methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class BikeController {
     @Autowired
     private BikeService bikeService;
@@ -20,11 +21,11 @@ public class BikeController {
         return bikeService.getAll();
     }
 
-    @PostMapping("/all")
+   /* @PostMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
     public Bike postBike(@RequestBody Bike bike){
         return bikeService.save(bike);
-    }
+    }*/
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Bike postBike1(@RequestBody Bike bike){
@@ -35,20 +36,17 @@ public class BikeController {
     public Bike putBike(@RequestBody Bike bike){
         return bikeService.update(bike);
     }
+    /*
     @PutMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
     public Bike putBike1(@RequestBody Bike bike){
         return bikeService.update(bike);
-    }
+    }*/
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBike(@PathVariable("id")int id){
         bikeService.delete(id);
     }
-    @DeleteMapping("/all")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteBike1(){
-        bikeService.deleteAll();
-    }
+
 }

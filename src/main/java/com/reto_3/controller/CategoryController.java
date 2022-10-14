@@ -22,13 +22,13 @@ public class CategoryController {
         return categoryService.getAll();
     }
 
-
+/*
     @PostMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
     public Category postCategory(@RequestBody Category category){
         return categoryService.save(category);
     }
-
+*/
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Category postCategory2(@RequestBody Category category){
@@ -40,13 +40,13 @@ public class CategoryController {
     public Category putCategory(@RequestBody Category category){
         return categoryService.update(category);
     }
-
+/*
     @PutMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
     public Category putCategory2(@RequestBody Category category){
         return categoryService.update(category);
     }
-
+*/
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteCategory(@PathVariable("id") int id){

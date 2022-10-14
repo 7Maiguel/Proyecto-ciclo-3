@@ -28,8 +28,5 @@ public class BikeRepository {
     public void deleteBike(Integer id){
         bikeCrudRepository.deleteById(id);
     }
-    public void deleteBikes(){
-        bikeCrudRepository.deleteAll();
-    }
 
 }

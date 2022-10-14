@@ -77,7 +77,4 @@ public class BikeService {
         return flag;
     }
 
-    public void deleteAll() {
-        bikeRepository.deleteBikes();
-    }
 }

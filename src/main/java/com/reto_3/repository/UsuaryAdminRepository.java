@@ -26,7 +26,7 @@ public class UsuaryAdminRepository {
     }
 
 
-    public void deleteAdmin(UsuaryAdmin usuaryAdmin){
-        usuaryAdminCrudRepository.delete(usuaryAdmin);
+    public void deleteAdmin(Integer id){
+        usuaryAdminCrudRepository.deleteById(id);
     }
 }

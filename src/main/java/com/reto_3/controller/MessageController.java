@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/Message")
+@CrossOrigin(origins = "*",methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class MessageController {
 
     @Autowired
@@ -22,11 +23,11 @@ public class MessageController {
         return messageService.getAll();
     }
 
-    @PostMapping("/all")
+    /*@PostMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
     public Message postMessage(@RequestBody Message message){
         return messageService.save(message);
-    }
+    }*/
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Message postMessage2(@RequestBody Message message){
@@ -34,11 +35,13 @@ public class MessageController {
     }
 
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Message putMessage(@RequestBody Message message){
         return messageService.update(message);
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteMessage(@RequestBody Message message){
         messageService.delete(message.getIdMessage());
     }

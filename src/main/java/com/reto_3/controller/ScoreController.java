@@ -10,11 +10,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/Score")
+@CrossOrigin(origins = "*",methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class ScoreController {
     @Autowired
     private ScoreService scoreService;
 
     @GetMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
     public List<Score> getScores(){
         return scoreService.getAll();
     }
@@ -26,6 +28,7 @@ public class ScoreController {
     }
 
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Score putScore(@RequestBody Score data){
         return scoreService.update(data);
     }

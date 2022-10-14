@@ -28,11 +28,13 @@ public class UsuaryAdminController {
     }
 
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public UsuaryAdmin putAdmin(@RequestBody UsuaryAdmin usuaryAdmin){
         return usuaryAdminService.update(usuaryAdmin);
     }
     @DeleteMapping("/{id}")
-    public void deleteAdmin(@RequestBody UsuaryAdmin usuaryAdmin ){
-        usuaryAdminService.delete(usuaryAdmin.getId());
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteAdmin(@PathVariable("id")int id ){
+        usuaryAdminService.delete(id);
     }
 }

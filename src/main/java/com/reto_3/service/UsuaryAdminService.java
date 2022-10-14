@@ -70,7 +70,7 @@ public class UsuaryAdminService {
         Boolean flag=false;
         Optional<UsuaryAdmin > usuaryAdmin= usuaryAdminRepository.getUsuaryAdmin(id);
         if(usuaryAdmin.isPresent()){
-            usuaryAdminRepository.deleteAdmin(usuaryAdmin.get());
+            usuaryAdminRepository.deleteAdmin(usuaryAdmin.get().getId());
             flag=true;
         }
 
