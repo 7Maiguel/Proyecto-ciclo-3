@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/Reservation")
+@CrossOrigin(origins = "*",methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class ReservationController {
 
     @Autowired
@@ -22,23 +23,26 @@ public class ReservationController {
         return reservationService.getAll();
     }
 
-    @PostMapping("/all")
+  /*  @PostMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation postReservation(@RequestBody Reservation reservation){
         return reservationService.save(reservation);
-    }
+    }*/
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation postReservation2(@RequestBody Reservation reservation){
         return reservationService.save(reservation);
     }
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Reservation putReservation(@RequestBody Reservation reservation){
         return reservationService.update(reservation);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteReservation(@RequestBody Reservation reservation){
-        reservationService.delete(reservation.getIdReservation());
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteReservation(@PathVariable("id") int id){
+        reservationService.delete(id);
     }
 }
