@@ -31,7 +31,7 @@ function mostrarClientes(items){
         myTable += "<td>" + items[i].age+"</td>";
         //myTable += "<td>" + items[i].message.name + "</td>";
         //myTable += "<td>" + items[i].reservation.name +"</td>";
-        myTable += "<td> <button onclick='borrarCliente("+items[i].id+")'>Borrar</button>";
+        myTable += "<td> <button onclick='borrarCliente("+items[i].idClient+")'>Borrar</button>";
         myTable += "<tr>";
     }
     myTable += "</tbody></table>";
