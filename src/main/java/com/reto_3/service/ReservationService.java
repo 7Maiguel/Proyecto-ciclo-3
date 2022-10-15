@@ -2,10 +2,16 @@ package com.reto_3.service;
 
 
 import com.reto_3.entity.Reservation;
+import com.reto_3.entity.bike.CountClient;
+import com.reto_3.entity.bike.CountStatus;
 import com.reto_3.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -69,4 +75,37 @@ public class ReservationService {
 
         return flag;
     }
+
+    public List<CountClient> getTopClients(){
+        return reservationRepository.getTopClients();
+    }
+
+    public List<Reservation>getReservationPeriod(String dateA, String dateB){
+        SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd");
+        Date a = new Date();
+        Date b = new Date();
+
+        try {
+            a=parser.parse(dateA);
+            b=parser.parse(dateB);
+        }catch (ParseException exception){
+            exception.printStackTrace();
+        }
+        if(a.before(b)){
+            return reservationRepository.getReservationPeriod(a,b);
+        }else {
+            return new ArrayList<>();
+        }
+
+    }
+
+    public CountStatus getReservationsStatus(){
+        List<Reservation> completed = reservationRepository.getReservationsByStatus(("completed"));
+
+        List<Reservation> cancelled = reservationRepository.getReservationsByStatus("cancelled");
+
+        return new CountStatus((long) completed.size(), (long) cancelled.size());
+    }
+
+
 }
