@@ -98,7 +98,7 @@ function borrarCategory(idElemento){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_CAT+'/api/Bike/{id}',
+        url:BASE_URL_CAT+'/api/Category/{id}',
         type:"DELETE",
         data:dataToSend,
         contentType: "application/json",
