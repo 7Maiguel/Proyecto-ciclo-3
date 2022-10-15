@@ -26,7 +26,6 @@ function mostrarCategoria(items){
 
     for(let i=0; i<items.length; i++){
         myTable += "<tr>";
-
         myTable += "<td>" + items[i].name + "</td>";
         myTable += "<td>" + items[i].description + "</td>";
         myTable += "<td> <button onclick='borrarCategory("+items[i].id+")'>Borrar</button>"
@@ -60,7 +59,7 @@ function enviarCategoria(){
         data: dataToSend,
         contentType: 'application/json',
         success:function(respuesta){
-
+            $("#idCategory").val("");
             $("#nameCat").val("");
             $("#descripcionCat").val("");
             obtenerCategoria();

@@ -1,7 +1,7 @@
-
+const BASE_URL_CLIENT = 'http://141.148.81.115'
 function obtenerCliente(){
     $.ajax({
-        url: BASE_URL_BIKE +'/api/Client/all',
+        url: BASE_URL_CLIENT+'/api/Client/all',
         type: "GET",
         dataType: "JSON",
         success: function(respuesta){
@@ -29,9 +29,9 @@ function mostrarClientes(items){
         myTable += "<td>" + items[i].name + "</td>";
         myTable += "<td>" + items[i].email + "</td>";
         myTable += "<td>" + items[i].age + "</td>";
+        myTable += "<td>" + items[i].message.name + "</td>";
+        myTable += "<td>" + items[i].reservation.name +"</td>";
         myTable += "<td> <button onclick='borrarCliente("+items[i].id+")'>Borrar</button>";
-        //myTable += "<td>" + items[i].message.name + "</td>";
-        //myTable += "<td>" + items[i].reservation.name "</td>";
         myTable += "<tr>";
     }
     myTable += "</tbody></table>";
@@ -52,15 +52,15 @@ function enviarCliente(){
 
         email: $("#emailCli").val(),
         name: $("#nameCli").val(),
-        age: $("#ageCli").val()
-        //category:{id:$("#categoryBici").val()},
-        //message:{id:$("#messageCli").val()}
+        age: $("#ageCli").val(),
+        category:{id:$("#categoryBici").val()},
+        message:{id:$("#messageCli").val()}
     };
 
     let dataToSend = JSON.stringify(dcliente);
 
     $.ajax({
-        url: BASE_URL_BIKE+'/api/Client/save',
+        url: BASE_URL_CLIENT+'/api/Client/save',
         type: "POST",
         data: dataToSend,
         contentType: 'application/json',
@@ -90,7 +90,7 @@ function enviarCliente(){
     let dataToSend = JSON.stringify(dCliente);
 
     $.ajax({
-        url: BASE_URL_BIKE+ '/api/Client/update',
+        url: BASE_URL_CLIENT+ '/api/Client/update',
         type: "PUT",
         data:dataToSend,
         contentType:"application/json",
@@ -101,6 +101,7 @@ function enviarCliente(){
             $("#emailCli").val("");
             $("#ageCli").val("");
             obtenerCliente();
+            alert("Se ha actualizado un dato");
         }
     });
 }
@@ -113,22 +114,23 @@ function enviarCliente(){
     let dataToSend = JSON.stringify(dCliente);
 
     $.ajax({
-        url: BASE_URL_BIKE+'/api/Client/{id}',
+        url: BASE_URL_CLIENT+'/api/Client/{idClient}',
         type: "DELETE",
         data: dataToSend,
         contentType:"application/json",
         success: function(respuesta){
             obtenerCliente();
+            alert("Se ha eliminado un dato");
         }
     });
 }
 
- function buscarCliente(){
+/* function buscarCliente(){
     let dCliente = $("#idCli").val();
 
     $.ajax({
-        url: `${BASE_URL_BIKE}/${dCliente}`,
-        type: "GET",
+        url: BASE_URL_BIKE+'/api/Client/{idClient}',
+        type: "DELETE",
         dataType: "JSON",
         success: function(respuesta){
             console.log(respuesta);
@@ -136,11 +138,12 @@ function enviarCliente(){
             mostrarClientes(respuesta.items);
         }
     });
-}
-
+}*/
+/*
 
  function limpiarTabla(){
     $('#consultarCli').text('Consultar');
     $('#consultarCli').attr('onclick', 'obtenerCliente()');
     $('#listaClientes').empty();
 }
+*/
