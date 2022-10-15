@@ -106,17 +106,11 @@ function enviarCliente(){
 }
 
  function borrarCliente(idCliente){
-    let dCliente = {
-        id:idCliente
-    };
-
-    let dataToSend = JSON.stringify(dCliente);
 
     $.ajax({
-        url: BASE_URL_CLIENT+'/api/Client/{id}',
+        url: BASE_URL_CLIENT+'/api/Client/'+idCliente,
         type: "DELETE",
-        data: dataToSend,
-        contentType:"application/json",
+        dataType: "JSON",
         success: function(respuesta){
             obtenerCliente();
             alert("Se ha eliminado un dato");
