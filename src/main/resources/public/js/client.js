@@ -113,7 +113,7 @@ function enviarCliente(){
     let dataToSend = JSON.stringify(dCliente);
 
     $.ajax({
-        url: BASE_URL_CLIENT+'/api/Client/{idClient}',
+        url: BASE_URL_CLIENT+'/api/Client/{id}',
         type: "DELETE",
         data: dataToSend,
         contentType:"application/json",
