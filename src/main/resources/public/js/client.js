@@ -26,16 +26,15 @@ function mostrarClientes(items){
 
     for(let i=0; i<items.length; i++){
         myTable += "<tr>";
-        myTable += "<td>" + items[i].name + "</td>";
-        myTable += "<td>" + items[i].email + "</td>";
-        myTable += "<td>" + items[i].age + "</td>";
-        myTable += "<td>" + items[i].message.name + "</td>";
-        myTable += "<td>" + items[i].reservation.name +"</td>";
+        myTable += "<td>" + items[i].name+"</td>";
+        myTable += "<td>" + items[i].email+"</td>";
+        myTable += "<td>" + items[i].age+"</td>";
+        //myTable += "<td>" + items[i].message.name + "</td>";
+        //myTable += "<td>" + items[i].reservation.name +"</td>";
         myTable += "<td> <button onclick='borrarCliente("+items[i].id+")'>Borrar</button>";
         myTable += "<tr>";
     }
     myTable += "</tbody></table>";
-
     $("#listaClientes").empty();
     $("#listaClientes").append(myTable);
 }
