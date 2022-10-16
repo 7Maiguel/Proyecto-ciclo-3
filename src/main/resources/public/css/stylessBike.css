@@ -6,6 +6,9 @@ body{
 html{
     scroll-behavior: smooth;
 }
+a:active{
+    color: #2655;
+}
 
 h1,h2,h3{
     color: #ffff;
