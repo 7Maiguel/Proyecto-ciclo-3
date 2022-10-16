@@ -21,7 +21,7 @@ function loadReservations(res){
 
     $('#reservationList').empty();
     $('#reservationList').append(
-        `<table class="table table-active"> 
+        `<table class="table table-active" id="reservationTable" >
             <thead>
                 <th>Estado</th>
                 <th>Cliente</th>
