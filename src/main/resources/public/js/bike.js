@@ -17,7 +17,7 @@ function pintarRespuesta(items){
     $('#consultarBici').attr('onclick', 'ocultarRespuestaBike()');
 
     let myTable=
-        `<table style="border: 1px solid black">
+        `<table class="table table-active">
         <thead>
             <th>Marca</th>
             <th>Modelo</th>

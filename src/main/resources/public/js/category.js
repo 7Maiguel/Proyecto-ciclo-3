@@ -16,7 +16,7 @@ function mostrarCategoria(items){
     $('#consultarCat').attr('onclick', 'ocultarRespuestaCategory()');
 
     let myTable=
-        `<table style="border: 1px solid black">
+        `<table class="table table-active">
         <thead>
                <th>nombre</th>
             <th>descripcion</th>

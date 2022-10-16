@@ -23,7 +23,7 @@ function mostrarInfoMensajes(res){
 
     $('#listaMensajes').empty();
     $('#listaMensajes').append(
-        `<table id="tablaMensajes" style="border: 1px solid black">
+        `<table class="table table-active">
             <thead>
                 <th>Cliente</th>
                 <th>Bicicleta</th>

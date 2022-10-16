@@ -16,7 +16,7 @@ function mostrarClientes(items){
     $('#consultarCli').attr('onclick', 'ocultarRespuestaClient()');
 
     let myTable=
-        `<table style="border: 1px solid black">
+        `<table class="table table-active">
         <thead>
             <th>Name</th>
             <th>Email</th>
