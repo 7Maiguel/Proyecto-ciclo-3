@@ -78,7 +78,7 @@ function enviarCliente(){
 
  function actualizarCliente(){
     let dCliente = {
-        id: $("#idCli").val(),
+        idClient: $("#idCli").val(),
         name: $("#nameCli").val(),
         email: $("#emailCli").val(),
         age: $("#ageCli").val(),
