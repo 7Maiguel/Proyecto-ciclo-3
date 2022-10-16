@@ -40,10 +40,10 @@ function mostrarInfoMensajes(res){
                 <th>${mensajes[i].bike.name}</th>
                 <td>${mensajes[i].messageText}</td>
                 <td>
-                    <button onclick="formEditar(${mensajes[i].idMessage},'${mensajes[i].messageText}')">Editar</button>
+                    <button onclick="formEditar(${mensajes[i].idMessage},'${mensajes[i].messageText}')">Actualizar</button>
                 </td>
                 <td>
-                    <button onclick="borrarMensaje(${mensajes[i].idMessage})">Eliminar</button>
+                    <button onclick="borrarMensaje(${mensajes[i].idMessage})">Borrar</button>
                 </td>
             </tr>`)
     }

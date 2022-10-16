@@ -92,9 +92,8 @@ function guardarAdmoUser(){
 }
 
  function borrarAdmoUser(idElemento){
-
     $.ajax({
-        url:BASE_URL_ADMOUSER+'/api/Admin/{id}',
+        url:BASE_URL_ADMOUSER+'/api/Admin/'+idElemento,
         type:"DELETE",
         dataType: "JSON",
         success:function(respuesta){

@@ -68,11 +68,11 @@ function loadReservations(res){
                         ${reservations[i].idReservation},
                         '${reservations[i].startDate.slice(0,10)}',
                         '${reservations[i].devolutionDate.slice(0,10)}')"
-                    >Editar
+                    >Actualizar
                 </button>
             </td>
             <td>
-                <button onclick="deleteReservation(${reservations[i].idReservation})">Eliminar</button>
+                <button onclick="deleteReservation(${reservations[i].idReservation})">Borrar</button>
             </td>`)
     }
     $('#list-btn-reservation').text('Ocultar');

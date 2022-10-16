@@ -94,8 +94,6 @@ function enviarCliente(){
         data:dataToSend,
         contentType:"application/json",
         success: function(respuesta){
-            console.log(respuesta);
-            $("#idCli").val("");
             $("#nameCli").val("");
             $("#emailCli").val("");
             $("#ageCli").val("");
