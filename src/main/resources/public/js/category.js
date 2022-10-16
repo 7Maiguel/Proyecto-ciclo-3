@@ -91,17 +91,11 @@ function updateCategory(){
 }
 
 function borrarCategory(idElemento){
-    let myData={
-        id:idElemento
-    };
-
-    let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_CAT+'/api/Category/{id}',
+        url:BASE_URL_CAT+'/api/Category/'+idElemento,
         type:"DELETE",
-        data:dataToSend,
-        contentType: "application/json",
+        dataType: "JSON",
         success:function(respuesta){
             obtenerCategoria();
             alert("Se ha eliminado un dato");

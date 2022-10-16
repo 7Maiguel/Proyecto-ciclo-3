@@ -108,17 +108,11 @@ function guardarInformacion(){
 }
 
  function borrarElemento(idElemento){
-    let myData={
-        id:idElemento
-        };
-
-    let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_BIKE+'/api/Bike/{id}',
+        url:BASE_URL_BIKE+'/api/Bike/'+idElemento,
         type:"DELETE",
-        data:dataToSend,
-        contentType: "application/json",
+        dataType: "JSON",
         success:function(respuesta){
             traerInformacion();
             alert("Se ha eliminado un dato");

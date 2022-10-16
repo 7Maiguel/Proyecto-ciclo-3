@@ -1,12 +1,14 @@
 
 
+const BASE_URL_MSG = 'http://141.148.81.115/api/Message';
 
 function leerMensajes(){
     $.ajax({
-        url: BASE_URL_BIKE+'/api/Message/all',
+        url: `${BASE_URL_MSG}/all`,
         type: 'GET',
         dataType: 'JSON',
         success: (res)=>{
+            console.clear();
             console.log('Mostrando mensajes...');
             mostrarInfoMensajes(res);
         },
@@ -37,8 +39,13 @@ function mostrarInfoMensajes(res){
                 <th>${mensajes[i].client.name}</th>
                 <th>${mensajes[i].bike.name}</th>
                 <td>${mensajes[i].messageText}</td>
-            </tr>`
-        )
+                <td>
+                    <button onclick="formEditar(${mensajes[i].idMessage},'${mensajes[i].messageText}')">Editar</button>
+                </td>
+                <td>
+                    <button onclick="borrarMensaje(${mensajes[i].idMessage})">Eliminar</button>
+                </td>
+            </tr>`)
     }
     $('#listarMensajes').text('Ocultar');
     $('#listarMensajes').attr('onclick', 'ocultarMensajes()');
@@ -52,7 +59,7 @@ function ocultarMensajes(){
 
 function guardarMensaje(){
     $.ajax({
-        url: BASE_URL_BIKE+'/api/Message/save',
+        url: `${BASE_URL_MSG}/save`,
         type: 'POST',
         data: JSON.stringify({
             messageText: $('#text-message').val(),
@@ -61,6 +68,7 @@ function guardarMensaje(){
         }),
         contentType: 'application/json',
         success: (res)=> {
+            console.clear();
             console.log('Guardando mensaje...');
             clearMessage();
             leerMensajes();
@@ -71,46 +79,58 @@ function guardarMensaje(){
     })
 }
 
-function formEditar(idMsg, msg){
-    $('#mensaje').val(msg);
-    $('#enviarMensaje').attr('onclick', `editarMensaje(${idMsg})`)
-    $('#enviarMensaje').text('Actualizar')
+function formEditar(msgId, msgText){
+    $('#text-message').val(msgText);
+    $('#enviarMensaje').attr('onclick', `editarMensaje(${msgId})`);
+    $('#enviarMensaje').text('Actualizar');
+    ocultarMensajes();
+    $('#clientId-message').hide();
+    $('#bikeId-message').hide();
+    $('#listarMensajes').hide();
+
 }
 
-function editarMensaje(idMsg){
+function editarMensaje(id){
     $.ajax({
-        url: BASE_URL_BIKE+'/api/Message/update',
+        url: `${BASE_URL_MSG}/update`,
         type: 'PUT',
         data: JSON.stringify({
-            id: idMsg,
-            messagetext: $('#mensaje').val()
+            idMessage: id,
+            messageText: $('#text-message').val()
         }),
         contentType: 'application/json',
-        success: (res)=>console.log('Editando mensaje...'),
+        success: (res)=>{
+            console.clear();
+            console.log('Editando mensaje...');
+            clearMessage();
+            $('#listarMensajes').show();
+            $('#clientId-message').show();
+            $('#bikeId-message').show();
+            $('#enviarMensaje').attr('onclick', `guardarMensaje()`);
+            $('#enviarMensaje').text('Guardar');
+            alert('Se ha modificado el mensaje');
+            leerMensajes();
+        },
         error: (err)=>{
             alert(`Error: Status ${err.status}`)
-        },
-        complete: ()=>{
-            $('#mensaje').val('');
-            $('#enviarMensaje').attr('onclick', `guardarMensaje()`)
-            $('#enviarMensaje').text('Guardar');
-            leerMensajes();
         }
     })
 }
+
 function borrarMensaje(idMsg){
     $.ajax({
-        url: BASE_URL_BIKE+'/api/Message/{id}',
+        url: `${BASE_URL_MSG}/${idMsg}`,
         type: 'DELETE',
-        data: JSON.stringify({id:idMsg}),
-        contentType: 'application/json',
+        dataType: 'JSON',
         success: (res)=>{
-            console.log('Eliminando mensaje...')
+            console.clear();
+            console.log('Eliminando mensaje...');
+            leerMensajes();
+            alert('Se ha eliminado el mensaje');
         },
         error: (err)=>{
             alert(`Error: Status ${err.status}`)
-        },
-        complete: ()=>leerMensajes()
+        }
     })
 }
 

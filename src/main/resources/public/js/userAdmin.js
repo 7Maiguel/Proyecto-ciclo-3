@@ -92,17 +92,11 @@ function guardarAdmoUser(){
 }
 
  function borrarAdmoUser(idElemento){
-    let myData={
-        id:idElemento
-    };
-
-    let dataToSend=JSON.stringify(myData);
 
     $.ajax({
         url:BASE_URL_ADMOUSER+'/api/Admin/{id}',
         type:"DELETE",
-        data:dataToSend,
-        contentType: "application/json",
+        dataType: "JSON",
         success:function(respuesta){
             getAdmoUser();
             alert("Se ha eliminado un dato");
